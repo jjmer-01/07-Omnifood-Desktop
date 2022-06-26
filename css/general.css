@@ -22,20 +22,25 @@ Default: 1
 ---02 COLORS
 
 -PRIMARY: 
-#E67E22;
+#e67e22
 -TINT: 
 #fdf2e9
 #fae5d3
+#eb984e
 -SHADES: 
 #cf711f
+#45260a;
 -ACCENTS
 -GREYS: 
+#767676 (lightest grade allowed on white
 #6f6f6f 
+#888
 #555
 #333
 
 
 ---03 SHADOWS
+ box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
 
 ---04 BORDER RADIUS
 Default: 9px
@@ -106,6 +111,10 @@ body {
   grid-template-columns: repeat(4, 1fr);
 }
 
+.grid--5-cols {
+  grid-template-columns: repeat(5, 1fr);
+}
+
 .grid--center-v {
   align-items: center;
 }
@@ -146,6 +155,7 @@ body {
   letter-spacing: 0.75;
 }
 
+.btn,
 .btn:link,
 .btn:visited {
   display: inline-block;
@@ -156,9 +166,15 @@ body {
   text-decoration: none;
   border-radius: 9px;
 
-  /* put transition n the original "state" */
+  /* only needed for .btn in forms */
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+
+  /* put transition on the original "state" */
   transition: all 0.3s;
 }
+
 .btn--full:link,
 .btn--full:visited {
   background-color: #e67e22;
@@ -182,6 +198,18 @@ body {
   /* border: 3px solid #fff; */
   /* Trick to add border inside the button */
   box-shadow: inset 0 0 0 3px #fff;
+}
+
+.btn--form {
+  background-color: #45260a;
+  color: #fdf2e9;
+  align-self: end;
+  padding: 1.2rem 3.2rem;
+}
+
+.btn--form:hover {
+  background-color: #fff;
+  color: #555;
 }
 
 .link:link,
@@ -218,6 +246,13 @@ body {
   width: 3rem;
   height: 3rem;
   color: #e67e22;
+}
+
+*:focus {
+  outline: none;
+  /* outline: 4px dotted #e67e22; */
+  /* outline-offset: 8px; */
+  box-shadow: 0 0 0 0.8rem rgb(230, 126, 34, 0.5);
 }
 
 /* HELPERS */
